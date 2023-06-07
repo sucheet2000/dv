@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <title>Project Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+        text-align:center;
+        font-size: 24px;
+
+    }
+        
+
+    #project-section {
+      padding: 12px;
+    }
+
+    #project-display {
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+
+    #grad1 {
+        height: 200px;
+        background-color: red; /* For browsers that do not support gradients */
+        background-image: linear-gradient(to bottom , #FFFFFF,#3E5151);
+      }
+    
+  </style>
+</head>
+
+<header>
+    <img src="https://www.scu.edu/media/offices/umc/scu-brand-guidelines/visual-identity-amp-photography/visual-identity-toolkit/logos-amp-seals/Mission-Horizontal-PMS201.png" alt="Logo" width="400" height="100">
+  </header>
+
+<body>
+
+
+  <h1>Waste Management Across Various SCU Buildings: A Visual Exploration</h1>
+   
+  <section id="project-section">
+    <h2>About the Assignment</h2>
+    <p>Upon examining the dataset, I initially found it unclear what insights could be derived from it. However, upon closer inspection, I discovered that it contained information about the waste generated at SCU (Santa Clara University). My initial intention was to analyze which event produced the highest amount of waste. Unfortunately, I noticed that the dataset did not include any information about the specific event associated with the waste collection. As a result, I shifted my focus and realized that there might be an intriguing pattern in the distribution of waste streams throughout the campus</p>
+    <ul>
+        <li>I have cleaned the data and used that dataset. I have added that cleaned dataset to the zipfile.</li>
+        
+        <li>When you hover over a sector in the chart, it displays the total weight of waste associated with that particular combination of stream and building.</li>
+    </ul>
+  </section>
+    
+    <section id="project-section">
+    <h2 style="margin-left: 15px">Project Display</h2>
+    <p style="margin-left: 15px">It uses this data to generate a 'SUNBURST CHART', where the waste streams and buildings are organized in a hierarchical structure.</p>
+    <p style="margin-left: 15px">The size of each sector in the chart represents the weight of waste associated with that particular combination of stream and building.</p>
+    <p style="margin-left: 15px">The circular layout of the sunburst visually conveys the proportions and relationships between waste types and buildings.</p>
+      </section>
+    
+    <section id="project-section">
+    <h3 style="margin-left: 20px">Size and Color</h3>
+     <ul style="margin-left: 30px;">   
+    <li>The size of the visualization is set to 1100x850 pixels to provide a spacious canvas for the chart and ensure optimal visibility of the data.</li>
+    <p style="margin-left: 20px;">Color plays a crucial role in conveying information effectively. In this visualization, I have used a specific color scheme to represent each waste type: </p>
+    <ul style="margin-left: 40px;">
+  <li>Landfill: #cacbcc (a light gray shade)</li>
+  <li>Compost: #8dd08a (a green shade)</li>
+  <li>Recycling: #2cb4f8 (a blue shade)</li>
+</ul>
+    <section id="project-section">    
+    <h3>Other Visual Elements</h3>
+    <p>To improve the user experience, I have incorporated interactive features:  </p>
+    <li style="margin-left: 20px"><strong><u>Hover Information:</u></strong> When users hover over a specific segment, a tooltip displays the total weight of waste for that particular waste type and building. </li>
+    <li style="margin-left: 20px"><strong><u>Legend:</u></strong> A legend is included to provide a clear understanding of the color coding for each waste type. </li>
+    </section>
+        <div id="sunburst-graph"></div>
+        <script>
+            // Parse the JSON representation of the figure
+            var graphJSON = JSON.parse('{{ fig_json | safe }}');
+            // Display the sunburst figure
+            Plotly.newPlot('sunburst-graph', graphJSON.data, graphJSON.layout);
+        </script>
+   
+</body>
+
+</html>
